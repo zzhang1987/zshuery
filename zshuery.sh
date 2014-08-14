@@ -109,9 +109,9 @@ prompts() {
     PS2=$3
 }
 prompt_char() { # by Steve Losh
-    git branch >/dev/null 2>/dev/null && echo '±' && return
+    bzr root >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
-    bzr root >/dev/null 2>/dev/null && echo '↥' && return
+    git branch >/dev/null 2>/dev/null && echo '↥' && return
     if (( $# == 0 )); then
       echo '$'
     else
@@ -233,12 +233,19 @@ fi
 
 # Aliases
 load_aliases() {
-    alias ..='cd ..'
-    alias la='ls -la'
+  
     if is_mac; then
         alias ql='qlmanage -p 2>/dev/null' # OS X Quick Look
         alias oo='open .' # open current dir in OS X Finder
+        alias ls='ls -G'
     fi
+
+    alias ..='cd ..'
+    alias la='ls -laH'
+    alias ll='ls -lFH'
+    alias l='ls -FH'
+
+      
     alias s_http='python -m SimpleHTTPServer' # serve current folder via HTTP
     alias s_smtp='python -m smtpd -n -c DebuggingServer localhost:1025' # SMTP test server, outputs to console
     alias wget='wget --no-check-certificate'
