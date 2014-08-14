@@ -233,13 +233,14 @@ fi
 
 # Aliases
 load_aliases() {
-  
+
     if is_mac; then
         alias ql='qlmanage -p 2>/dev/null' # OS X Quick Look
         alias oo='open .' # open current dir in OS X Finder
         alias ls='ls -G'
 
-	alias rm='rmtrash'
+	      alias rm='rmtrash'
+        alias d='cd ~/Desktop'
     fi
 
     alias ..='cd ..'
@@ -250,7 +251,7 @@ load_aliases() {
     alias s_http='python -m SimpleHTTPServer' # serve current folder via HTTP
     alias s_smtp='python -m smtpd -n -c DebuggingServer localhost:1025' # SMTP test server, outputs to console
     alias wget='wget --no-check-certificate'
-    alias pinst='sudo python setup.py install && sudo rm -r build && sudo rm -r dist && sudo rm -r *egg-info' # install a Python package
+    # alias pinst='sudo python setup.py install && sudo rm -r build && sudo rm -r dist && sudo rm -r *egg-info' # install a Python package
     alias beep='echo -n "\a"'
     alias lst="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 }
