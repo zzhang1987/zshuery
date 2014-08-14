@@ -23,6 +23,7 @@ chpwd() {
 
 # zsh has its own line editor (ZLE) and doesn't read readline's .inputrc
 
+bindkey -v
 #history only on first substring of command you're typing
 #bindkey "\e[A" up-line-or-search
 #bindkey "\e[B" down-line-or-search
