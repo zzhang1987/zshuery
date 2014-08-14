@@ -1,4 +1,8 @@
+
+
 # jQuery did this for JS, we're doing it for zsh
+
+
 
 # Checks
 is_mac() { [[ $OSTYPE == darwin* ]] }
@@ -15,6 +19,7 @@ IS_LINUX=`is_linux && echo 1 || echo 0`
 HAS_BREW=`has_brew && echo 1 || echo 0`
 HAS_APT=`has_apt && echo 1 || echo 0`
 HAS_YUM=`has_yum && echo 1 || echo 0`
+
 
 # Settings
 autoload colors; colors;
@@ -93,6 +98,7 @@ else
             update_terminal_cwd() {};;
     esac
 fi
+
 # Prompt aliases for readability
 USER_NAME='%n'
 HOST_NAME='%m'
@@ -160,6 +166,7 @@ latrus() { echo $1 | tr "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\
 ruslat() { echo $1 | tr "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ" "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM" }
 urlencode() { python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])" $1 }
 urldecode() { python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])" $1 }
+
 path() {
   echo $PATH | tr ":" "\n" | \
     awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
@@ -171,7 +178,9 @@ path() {
            sub(\"/home\",  \"$fg_no_bold[red]/home$reset_color\"); \
            print }"
 }
-up() { # https://gist.github.com/1474072
+
+# https://gist.github.com/1474072
+up() {
     if [ "$1" != "" -a "$2" != "" ]; then
         local DIR=$1
         local TARGET=$2
