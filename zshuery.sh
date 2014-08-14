@@ -250,7 +250,10 @@ load_aliases() {
 
 	      alias rm='rmtrash'
         alias d='cd ~/Desktop'
+        alias o='open'
+
     fi
+
 
     alias ..='cd ..'
     alias la='ls -lah'
