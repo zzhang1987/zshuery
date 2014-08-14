@@ -33,8 +33,8 @@ load_defaults() {
     autoload -U zmv
     bindkey "^[m" copy-prev-shell-word
     HISTFILE=$HOME/.zsh_history
-    HISTSIZE=10000
-    SAVEHIST=10000
+    HISTSIZE=50000
+    SAVEHIST=50000
     export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # Like default, but without / -- ^W must be useful in paths, like it is in vim, bash, tcsh
     setopt hist_ignore_dups
     setopt hist_reduce_blanks
@@ -238,14 +238,15 @@ load_aliases() {
         alias ql='qlmanage -p 2>/dev/null' # OS X Quick Look
         alias oo='open .' # open current dir in OS X Finder
         alias ls='ls -G'
+
+	alias rm='rmtrash'
     fi
 
     alias ..='cd ..'
-    alias la='ls -laH'
-    alias ll='ls -lFH'
-    alias l='ls -FH'
+    alias la='ls -lah'
+    alias ll='ls -lFh'
+    alias l='ls -Fh'
 
-      
     alias s_http='python -m SimpleHTTPServer' # serve current folder via HTTP
     alias s_smtp='python -m smtpd -n -c DebuggingServer localhost:1025' # SMTP test server, outputs to console
     alias wget='wget --no-check-certificate'
