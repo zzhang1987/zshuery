@@ -114,23 +114,28 @@ prompts() {
     RPROMPT=$2
     PS2=$3
 }
+
 prompt_char() { # by Steve Losh
     bzr root >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
     git branch >/dev/null 2>/dev/null && echo '🌿 ' && return
-    if (( $# == 0 )); then
-    #  echo '$'
-    echo "🍂 "
+
+    if (( $# == 0 ));
+    then
+      echo "🍂 "
     else
       echo $1
     fi
 }
+
 virtualenv_info() {
     [ $VIRTUAL_ENV ] && echo ' ('`basename $VIRTUAL_ENV`')'
 }
+
 last_modified() { # by Ryan Bates
     ls -t $* 2> /dev/null | head -n 1
 }
+
 ex() {
     if [[ -f $1 ]]; then
         case $1 in
@@ -255,7 +260,6 @@ load_aliases() {
 
     fi
 
-
     alias ..='cd ..'
     alias la='ls -lah'
     alias ll='ls -lFh'
@@ -268,26 +272,7 @@ load_aliases() {
     alias beep='echo -n "\a"'
     alias lst="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 }
-load_lol_aliases() {
-    # Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
-    alias wtf='dmesg'
-    alias onoz='cat /var/log/errors.log'
-    alias rtfm='man'
-    alias visible='echo'
-    alias invisible='cat'
-    alias moar='more'
-    alias icanhas='mkdir'
-    alias donotwant='rm'
-    alias dowant='cp'
-    alias gtfo='mv'
-    alias hai='cd'
-    alias plz='pwd'
-    alias inur='locate'
-    alias nomz='ps aux | less'
-    alias nomnom='killall'
-    alias cya='reboot'
-    alias kthxbai='halt'
-}
+
 
 # Completion
 load_completion() {
