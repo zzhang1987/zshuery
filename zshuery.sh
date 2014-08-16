@@ -254,7 +254,7 @@ load_aliases() {
         alias oo='open .' # open current dir in OS X Finder
         alias ls='ls -G'
 
-	      alias rm='rmtrash'
+        alias rm='echo "-- moving file(s) to ~/.Trash/" && rmtrash'
         alias d='cd ~/Desktop'
         alias o='open'
 
