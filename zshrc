@@ -1,6 +1,6 @@
 
-
 source ~/Configfiles/zshuery/zshuery.sh
+
 load_defaults
 load_aliases
 load_completion  ~/Configfiles/zshuery/completion/src
