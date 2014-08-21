@@ -1,5 +1,13 @@
 
-source ~/Configfiles/zshuery/zshuery.sh
+
+
+
+
+source $HOME/Configfiles/zshuery/zshuery.sh
+source $HOME/Configfiles/python.plugin.zsh
+
+
+zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
 
 load_defaults
 load_aliases
@@ -19,6 +27,12 @@ if is_mac; then
 else
     export EDITOR='vim'
 fi
+
+
+virtual_envs=($HOME/python $HOME/Projects/python)
+export PIP_DOWNLOAD_CACHE=$HOME/.pip_cache
+
+
 
 chpwd() {
     update_terminal_cwd
