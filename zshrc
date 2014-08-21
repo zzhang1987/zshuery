@@ -1,6 +1,6 @@
 
-source $HOME/Configfiles/zshuery/zshuery.sh
-source $HOME/Configfiles/zshuery/python.plugin.zsh
+source $HOME/Configfiles/zsh-configfiles/main-config.zsh
+source $HOME/Configfiles/zsh-configfiles/python-config.zsh
 
 
 zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
