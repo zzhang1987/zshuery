@@ -1,7 +1,7 @@
 
-
+#
 # jQuery did this for JS, we're doing it for zsh
-
+#
 
 
 # Checks
@@ -251,12 +251,14 @@ load_aliases() {
 
     if is_mac; then
         alias ql='qlmanage -p 2>/dev/null' # OS X Quick Look
-        alias oo='open .' # open current dir in OS X Finder
+        alias oo='open .'                  # open current dir in OS X Finder
         alias ls='ls -G'
 
         alias rm='echo "-- moving file(s) to ~/.Trash/" && rmtrash'
         alias d='cd ~/Desktop'
         alias o='open'
+                                           # OSX lock screen
+        alias lockup='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
     fi
 

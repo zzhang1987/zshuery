@@ -1,10 +1,6 @@
 
-
-
-
-
 source $HOME/Configfiles/zshuery/zshuery.sh
-source $HOME/Configfiles/python.plugin.zsh
+source $HOME/Configfiles/zshuery/python.plugin.zsh
 
 
 zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
@@ -22,7 +18,7 @@ if is_mac; then
     [[ -d ~/Dropbox/bin ]] && export PATH=~/Dropbox/bin:$PATH
     
     [[ -d /usr/local/cuda/bin ]] && export PATH=/usr/local/cuda/bin:$PATH
-    [[ -d /usr/local/cuda/lib ]] && export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+    # [[ -d /usr/local/cuda/lib ]] && export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 
 else
     export EDITOR='vim'
