@@ -1,6 +1,8 @@
 
-source $HOME/Configfiles/zsh-configfiles/main-config.zsh
-source $HOME/Configfiles/zsh-configfiles/python-config.zsh
+
+
+source $HOME/Configfiles/zsh-configfiles/main.rc.zsh
+source $HOME/Configfiles/zsh-configfiles/python.rc.zsh
 
 
 zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
