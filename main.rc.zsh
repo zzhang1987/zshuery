@@ -55,6 +55,15 @@ load_defaults() {
 # Plug and play
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found # Debian/Ubuntu (out of the box with zsh)
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh # Arch Linux (install the pkgfile package)
+
+
+# GRC colorizes nifty unix tools all over the place
+if (( $+commands[grc] )) && (( $+commands[brew] ))
+then
+  source `brew --prefix`/etc/grc.bashrc
+fi
+
+
 if [[ -n ${commands[hub]} ]]; then
     function git(){hub $@}
 fi
