@@ -272,9 +272,19 @@ load_aliases() {
     fi
 
     alias ..='cd ..'
+    
     alias la='ls -lah'
     alias ll='ls -lFh'
     alias l='ls -Fh'
+
+    # grc overides for ls; Made possible through contributions from generous benefactors like
+    # `brew install coreutils`
+    if $(gls &>/dev/null); then
+      alias ls="gls -h   --color"
+      alias l="gls  -Fh  --color"
+      alias ll="gls -lh  --color"
+      alias la='gls -lAh  --color'
+    fi
 
     alias s_http='python -m SimpleHTTPServer' # serve current folder via HTTP
     alias s_smtp='python -m smtpd -n -c DebuggingServer localhost:1025' # SMTP test server, outputs to console

@@ -1,7 +1,10 @@
 
-# Zsh-configfiles: Forked from https://github.com/myfreeweb/zshuery
+# Zsh-configfiles
+
+Forked from https://github.com/myfreeweb/zshuery
 
 The zshrc is also in the directory. I am using OSX 10.9.
+
 
 
 The following is the original README:
