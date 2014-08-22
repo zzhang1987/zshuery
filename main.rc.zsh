@@ -5,13 +5,16 @@
 
 
 # Checks
-is_mac() { [[ $OSTYPE == darwin* ]] }
+is_mac()     { [[ $OSTYPE == darwin* ]] }
 is_freebsd() { [[ $OSTYPE == freebsd* ]] }
-is_linux() { [[ $OSTYPE == linux-gnu ]] }
+is_linux()   { [[ $OSTYPE == linux-gnu ]] }
 
-has_brew() { [[ -n ${commands[brew]} ]] }
-has_apt() { [[ -n ${commands[apt-get]} ]] }
-has_yum() { [[ -n ${commands[yum]} ]] }
+has_brew()   { [[ -n ${commands[brew]} ]] }
+has_apt()    { [[ -n ${commands[apt-get]} ]] }
+has_yum()    { [[ -n ${commands[yum]} ]] }
+
+is_numeric() { [[ $1 == <-> ]] }
+
 
 # DEPRECATED (!)
 IS_MAC=`is_mac && echo 1 || echo 0`
@@ -19,6 +22,11 @@ IS_LINUX=`is_linux && echo 1 || echo 0`
 HAS_BREW=`has_brew && echo 1 || echo 0`
 HAS_APT=`has_apt && echo 1 || echo 0`
 HAS_YUM=`has_yum && echo 1 || echo 0`
+
+
+
+
+
 
 
 # Settings
@@ -208,6 +216,7 @@ up() {
     done
     test $DIR != "/" && echo $DIR/$TARGET
 }
+
 if is_mac; then
     cdf() { eval cd "`osascript -e 'tell app "Finder" to return the quoted form of the POSIX path of (target of window 1 as alias)' 2>/dev/null`" }
     vol() {
@@ -253,6 +262,20 @@ if is_mac; then
         end tell
 EOT
     }
+
+
+    rm()
+    {
+      # true if file exists and is a symbolic link. 
+      if [[ -h "$1" ]]; then
+      echo "-- unlink $1"
+        unlink "$1"
+      else
+        echo "-- moving file(s) to ~/.Trash/" 
+        rmtrash $@
+      fi
+    }
+
 fi
 
 # Aliases
@@ -263,12 +286,10 @@ load_aliases() {
         alias oo='open .'                  # open current dir in OS X Finder
         alias ls='ls -G'
 
-        alias rm='echo "-- moving file(s) to ~/.Trash/" && rmtrash'
         alias d='cd ~/Desktop'
         alias o='open'
                                            # OSX lock screen
         alias lockup='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
-
     fi
 
     alias ..='cd ..'
