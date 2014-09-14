@@ -176,6 +176,25 @@ ex() {
         echo "'$1' is not a valid file"
     fi
 }
+
+
+# -------------------------------------------------------------------
+# any function from http://onethingwell.org/post/14669173541/any
+# search for running processes
+# -------------------------------------------------------------------
+any() {
+    emulate -L zsh
+    unsetopt KSH_ARRAYS
+    if [[ -z "$1" ]] ; then
+        echo "any - grep for process(es) by keyword" >&2
+        echo "Usage: any " >&2 ; return 1
+    else
+        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+    fi
+}
+
+
+
 mcd() { mkdir -p "$1" && cd "$1"; }
 pj() { python -mjson.tool } # pretty-print JSON
 cj() { curl -sS $@ | pj } # curl JSON
@@ -293,7 +312,7 @@ load_aliases() {
     fi
 
     alias ..='cd ..'
-    
+    alias mv='mv -i'
     alias la='ls -lah'
     alias ll='ls -lFh'
     alias l='ls -Fh'
@@ -313,6 +332,8 @@ load_aliases() {
     # alias pinst='sudo python setup.py install && sudo rm -r build && sudo rm -r dist && sudo rm -r *egg-info' # install a Python package
     alias beep='echo -n "\a"'
     alias lst="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
+
+    alias svnci=""
 }
 
 
