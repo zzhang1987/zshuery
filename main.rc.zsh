@@ -317,6 +317,7 @@ load_aliases() {
 
     alias ..='cd ..'
     alias mv='mv -i'
+    alias cp='cp -i'
     alias la='ls -lah'
     alias ll='ls -lFh'
     alias l='ls -Fh'
