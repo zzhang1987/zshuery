@@ -309,6 +309,10 @@ load_aliases() {
         alias o='open'
                                            # OSX lock screen
         alias lockup='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+        # matlab
+        export MATLAB_JAVA="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+        alias matlab='/Applications/MATLAB_R2014a.app/bin/matlab -desktop'
     fi
 
     alias ..='cd ..'
