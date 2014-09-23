@@ -236,6 +236,7 @@ up() {
     test $DIR != "/" && echo $DIR/$TARGET
 }
 
+
 if is_mac; then
     cdf() { eval cd "`osascript -e 'tell app "Finder" to return the quoted form of the POSIX path of (target of window 1 as alias)' 2>/dev/null`" }
     vol() {
@@ -294,6 +295,7 @@ EOT
         rmtrash $@
       fi
     }
+
 
 fi
 
