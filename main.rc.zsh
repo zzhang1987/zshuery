@@ -26,9 +26,6 @@ HAS_YUM=`has_yum && echo 1 || echo 0`
 
 
 
-
-
-
 # Settings
 autoload colors; colors;
 load_defaults() {
@@ -295,7 +292,6 @@ EOT
         rmtrash $@
       fi
     }
-
 
 fi
 

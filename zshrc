@@ -3,6 +3,9 @@
 
 source $HOME/Configfiles/zsh-configfiles/main.rc.zsh
 source $HOME/Configfiles/zsh-configfiles/python.rc.zsh
+source $HOME/Configfiles/zsh-configfiles/tools.rc.zsh
+
+
 
 
 zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
