@@ -340,7 +340,7 @@ load_aliases() {
     alias beep='echo -n "\a"'
     alias lst="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 
-    alias svnci=""
+    alias svnci="svn ci -m'CS: `date`'"
 }
 
 
