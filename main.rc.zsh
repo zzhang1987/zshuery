@@ -293,6 +293,18 @@ EOT
       fi
     }
 
+    
+    bsearch()
+    {
+      echo "Homebrew formulas:"
+      echo  -n "  "
+      brew search $1
+
+      echo "Homebrew Cask formulas:"
+      echo  -n "  "
+      brew cask search $1
+    }
+
 fi
 
 # Aliases
