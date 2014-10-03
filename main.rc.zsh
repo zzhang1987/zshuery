@@ -296,11 +296,11 @@ EOT
     
     bsearch()
     {
-      echo "Homebrew formulas:"
+      echo "- Homebrew formulas:"
       echo  -n "  "
       brew search $1
-
-      echo "Homebrew Cask formulas:"
+      echo "---"
+      echo "- Homebrew Cask formulas:"
       echo  -n "  "
       brew cask search $1
     }
