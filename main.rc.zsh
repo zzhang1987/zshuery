@@ -305,6 +305,13 @@ EOT
       brew cask search $1
     }
 
+    # change the title of iTerm2 tab
+    # title I want a pony!
+    title {
+      echo -ne "\033]0;"$*"\007"
+    }
+
+
 fi
 
 # Aliases
