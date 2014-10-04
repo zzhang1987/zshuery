@@ -307,7 +307,8 @@ EOT
 
     # change the title of iTerm2 tab
     # title I want a pony!
-    title {
+    title()
+    {
       echo -ne "\033]0;"$*"\007"
     }
 
