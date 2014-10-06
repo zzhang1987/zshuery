@@ -61,13 +61,11 @@ load_defaults() {
 [[ -e /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found # Debian/Ubuntu (out of the box with zsh)
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh # Arch Linux (install the pkgfile package)
 
-
 # GRC colorizes nifty unix tools all over the place
 if (( $+commands[grc] )) && (( $+commands[brew] ))
 then
   source `brew --prefix`/etc/grc.bashrc
 fi
-
 
 if [[ -n ${commands[hub]} ]]; then
     function git(){hub $@}
@@ -174,7 +172,6 @@ ex() {
     fi
 }
 
-
 # -------------------------------------------------------------------
 # any function from http://onethingwell.org/post/14669173541/any
 # search for running processes
@@ -190,17 +187,15 @@ any() {
     fi
 }
 
-
-
-mcd() { mkdir -p "$1" && cd "$1"; }
-pj() { python -mjson.tool } # pretty-print JSON
-cj() { curl -sS $@ | pj } # curl JSON
-md5() { echo -n $1 | openssl md5 /dev/stdin }
-sha1() { echo -n $1 | openssl sha1 /dev/stdin }
+mcd()    { mkdir -p "$1" && cd "$1"; }
+pj()     { python -mjson.tool } # pretty-print JSON
+cj()     { curl -sS $@ | pj } # curl JSON
+md5()    { echo -n $1 | openssl md5 /dev/stdin }
+sha1()   { echo -n $1 | openssl sha1 /dev/stdin }
 sha256() { echo -n $1 | openssl dgst -sha256 /dev/stdin }
 sha512() { echo -n $1 | openssl dgst -sha512 /dev/stdin }
-rot13() { echo $1 | tr "A-Za-z" "N-ZA-Mn-za-m" }
-rot47() { echo $1 | tr "\!-~" "P-~\!-O" }
+rot13()  { echo $1 | tr "A-Za-z" "N-ZA-Mn-za-m" }
+rot47()  { echo $1 | tr "\!-~" "P-~\!-O" }
 latrus() { echo $1 | tr "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM" "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ" }
 ruslat() { echo $1 | tr "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ" "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM" }
 urlencode() { python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])" $1 }
@@ -231,6 +226,79 @@ up() {
         DIR=$(dirname $DIR)
     done
     test $DIR != "/" && echo $DIR/$TARGET
+}
+
+tex_clean() {
+    for ext in "*bak" "*log" "*swp" "*~" "*bbl" "*blg" "*aux" "*dvi" \
+        "*synctex.gz" "*sav" "*fmt" "*out"
+    do
+        echo "moving:  "$ext" to ./temp"
+
+            [[ ! -d ./temp ]] && mkdir ./temp
+            for f in `find . -type f -name "$ext"`
+            do
+                mv -f "$f" ./temp
+            done
+    done
+}
+
+zz() {
+    if [ -z $1 ]; then
+            echo "you need to provide a file or dir to zip."
+            return
+     fi
+
+    DIR="$1"
+    filename=${DIR%/*}
+
+    DATE=$(date +%m%d-%H%M)
+
+    f="$filename""-"$DATE.zip
+    echo "... Compressing files into:  ""$f"
+    zip -r "$f"  $DIR
+}
+
+zr() {
+    if [ -z $1 ]; then
+            echo "you need to provide a file or dir to zip."
+            return
+     fi
+
+    DIR="$1"
+    filename=${DIR%/*}
+
+    DATE=$(date +%m%d-%H%M)
+
+    f="$filename""-"$DATE.rar
+    echo "... Compressing files into:  ""$f"
+    rar a -r "$f"  $DIR
+}
+
+tarz() {
+    if [ -z $1 ]; then
+            echo "you need to provide a file or dir to zip."
+            return
+    fi
+
+    DIR="$1"
+    filename=${DIR%/*}
+
+    DATE=$(date +%m%d-%H%M)
+
+    f="$filename""-"$DATE.tar.gz
+    echo "... Compressing files into:  ""$f"
+    tar cvfz  "$f"  $DIR
+
+    echo "Done. The compressed file is: ""$f"
+}
+
+embed_pdf_fonts() {
+    yourfile=$1
+    pdftops $yourfile
+    ps2pdf14 -dPDFSETTINGS=/prepress $yourfile  ieee_output_$yourfile
+    echo "The output is: "ieee_output_$yourfile
+    echo "Run pdffonts ..."
+    pdffonts ieee_output_$yourfile
 }
 
 
@@ -280,7 +348,6 @@ if is_mac; then
 EOT
     }
 
-
     rm()
     {
       # true if file exists and is a symbolic link. 
@@ -293,8 +360,7 @@ EOT
       fi
     }
 
-    
-    bsearch()
+    brew_search()
     {
       echo "- Homebrew formulas:"
       echo  -n "  "
@@ -311,7 +377,6 @@ EOT
     {
       echo -ne "\033]0;"$*"\007"
     }
-
 
 fi
 
