@@ -24,8 +24,6 @@ HAS_APT=`has_apt && echo 1 || echo 0`
 HAS_YUM=`has_yum && echo 1 || echo 0`
 
 
-
-
 # Settings
 autoload colors; colors;
 load_defaults() {
@@ -95,6 +93,7 @@ elif [[ -d $RBENV_ROOT ]]; then
 else
     ruby_version() { echo '' }
 fi
+
 # Current directory in title
 if [[ $TERM_PROGRAM == "Apple_Terminal" ]]; then
     update_terminal_cwd() {
@@ -115,7 +114,7 @@ fi
 USER_NAME='%n'
 HOST_NAME='%m'
 DIR='%~'
-COLLAPSED_DIR() { # by Steve Losh
+COLLAPSED_DIR() {                       # by Steve Losh
     echo $(pwd | sed -e "s,^$HOME,~,")
     local PWD_URL="file://$HOST_NAME${PWD// /%20}"
 }
@@ -144,7 +143,7 @@ virtualenv_info() {
     [ $VIRTUAL_ENV ] && echo ' ('`basename $VIRTUAL_ENV`')'
 }
 
-last_modified() { # by Ryan Bates
+last_modified() {
     ls -t $* 2> /dev/null | head -n 1
 }
 
@@ -188,8 +187,8 @@ any() {
 }
 
 mcd()    { mkdir -p "$1" && cd "$1"; }
-pj()     { python -mjson.tool } # pretty-print JSON
-cj()     { curl -sS $@ | pj } # curl JSON
+pj()     { python -mjson.tool }    # pretty-print JSON
+cj()     { curl -sS $@ | pj }      # curl JSON
 md5()    { echo -n $1 | openssl md5 /dev/stdin }
 sha1()   { echo -n $1 | openssl sha1 /dev/stdin }
 sha256() { echo -n $1 | openssl dgst -sha256 /dev/stdin }
@@ -358,7 +357,7 @@ EOT
       echo "-- unlink $1"
         unlink "$1"
       else
-        echo "-- moving file(s) to ~/.Trash/" 
+        echo "$fg_bold[blue]--$reset_color moving file(s) to ~/.Trash/" 
         rmtrash $@
       fi
     }
