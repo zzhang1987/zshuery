@@ -1,5 +1,12 @@
+#
 # remove pyc files
+#
 alias pyclean='find . -type f -name "*.py[co]" -exec rm -f \{\} \; && find . -type d -name "__pycache__" | xargs rm -r && echo "Removed pycs and __pycache__"'
+
+
+alias conda-install='conda install -n cs'
+alias conda-remove='conda install -n cs'
+
 
 # Does my python module exist?
 try() {

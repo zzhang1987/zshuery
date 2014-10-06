@@ -20,7 +20,7 @@ prompts '%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(virtualenv_info) %{
 if is_mac; then
     export EDITOR='mvim'
 
-    [[ -d ~/Dropbox/bin ]] && export PATH=~/Dropbox/bin:$PATH
+    [[ -d ~/Dropbox/bin ]] && export PATH=~/Dropbox/bin:~/anaconda/bin:$PATH
     [[ -d ~/bin ]] && export PATH=~/bin:$PATH
     [[ -d /usr/local/cuda/bin ]] && export PATH=/usr/local/cuda/bin:$PATH
     # [[ -d /usr/local/cuda/lib ]] && export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
