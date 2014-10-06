@@ -294,6 +294,9 @@ tarz() {
 
 embed_pdf_fonts() {
     yourfile=$1
+
+    ! [[  ${yourfile##*\.} == pdf ]] && echo "Input must be a PDF file." && return
+
     pdftops $yourfile
     ps2pdf14 -dPDFSETTINGS=/prepress $yourfile  ieee_output_$yourfile
     echo "The output is: "ieee_output_$yourfile
