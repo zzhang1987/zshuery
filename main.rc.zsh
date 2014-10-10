@@ -396,7 +396,7 @@ load_aliases() {
 
         # matlab
         export MATLAB_JAVA="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-        alias matlab='/Applications/MATLAB_R2014a.app/bin/matlab -desktop'
+        alias matlab='/Applications/MATLAB_R2014b.app/bin/matlab -desktop'
     fi
 
     alias ..='cd ..'
