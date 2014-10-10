@@ -1,4 +1,3 @@
-
 #
 # jQuery did this for JS, we're doing it for zsh
 #
@@ -401,8 +400,8 @@ load_aliases() {
     fi
 
     alias ..='cd ..'
-    alias mv='mv -i'
-    alias cp='cp -i'
+    alias mv='mv -iv'
+    alias cp='cp -iv'
     alias la='ls -lah'
     alias ll='ls -lFh'
     alias l='ls -Fh'
