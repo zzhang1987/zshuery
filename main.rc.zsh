@@ -423,6 +423,11 @@ load_aliases() {
     alias lst="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 
     alias svnci="svn ci -m'CS: `date`'"
+
+    alias rsync-copy="rsync -avz --progress -h"
+    alias rsync-move="rsync -avz --progress -h --remove-source-files"
+    alias rsync-update="rsync -avzu --progress -h"
+    alias rsync-synchronize="rsync -avzu --delete --progress -h"
 }
 
 
