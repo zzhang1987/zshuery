@@ -35,7 +35,7 @@ walkup() {
     fi
 }
 
-activate() {
+activate_virtual() {
     if ! (( $#virtual_envs )) ; then
         echo "\nThe virtual_envs variable is not set. Try setting it with"
         echo "the absolute paths of your environments::\n"
