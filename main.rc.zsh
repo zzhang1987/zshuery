@@ -400,6 +400,10 @@ load_aliases() {
 
         alias sc='screencapture -iW ~/Desktop/screen.jpg'
         alias screen_capture='screencapture -iW ~/Desktop/screen.jpg'
+        
+        # OSX software update
+        alias up='softwareupdate -v --install --all'
+
     fi
 
     alias ..='cd ..'
