@@ -15,7 +15,7 @@ function ip-addr()
   echo
 }
 
-function copyfile 
+function copyfile() 
 {
   
   [[ $OSTYPE != darwin* ]] && echo "copyfile only works for OSX." &&  return 1
@@ -25,3 +25,12 @@ function copyfile
   cat $file_to_copy | pbcopy
 }
 
+function avi2mp4()
+{
+  output=`basename $1  .avi`
+
+  [[ "$#" != 1 ]] && return 1
+  local in=$1
+
+  ffmpeg -i $in  -b:a 128k -vcodec mpeg4 -b:v 1200k -flags +aic+mv4 "$output".mp4
+}
