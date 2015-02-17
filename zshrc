@@ -5,6 +5,13 @@ source $HOME/Configfiles/zsh-configfiles/main.rc.zsh
 source $HOME/Configfiles/zsh-configfiles/python.rc.zsh
 source $HOME/Configfiles/zsh-configfiles/tools.rc.zsh
 
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source $HOME/Configfiles/zsh-configfiles/liquidprompt/liquidprompt
+
+#
+# prompts '%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}[$?]%{$reset_color%}' 
+#
+
 
 
 
@@ -15,7 +22,6 @@ load_aliases
 load_completion  ~/Configfiles/zshuery/completion/src
 load_correction
 
-prompts '%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}[$?]%{$reset_color%}' 
 
 if is_mac; then
     export EDITOR='mvim'
