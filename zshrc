@@ -7,6 +7,7 @@ source $HOME/Configfiles/zsh-configfiles/tools.rc.zsh
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && source $HOME/Configfiles/zsh-configfiles/liquidprompt/liquidprompt
+LP_MARK_GIT="❀"
 
 #
 # prompts '%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}[$?]%{$reset_color%}' 
