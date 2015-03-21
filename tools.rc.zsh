@@ -34,3 +34,18 @@ function avi2mp4()
 
   ffmpeg -i $in  -b:a 128k -vcodec mpeg4 -b:v 1200k -flags +aic+mv4 "$output".mp4
 }
+
+function git_up_all()
+{
+  SAVEIFS=$IFS
+  IFS=$(echo -en "\n\b")
+  
+  for i in `find . -maxdepth 1 -type d`
+  do
+    cd "$i"
+      echo "  --> "`pwd`
+      git up
+    [[ ! $i == "."  ]] && cd ..
+  done
+  IFS=$SAVEIFS
+}
