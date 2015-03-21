@@ -44,7 +44,7 @@ function git_up_all()
   do
     cd "$i"
       echo "  --> "`pwd`
-      git up
+      git up  2>/dev/null
     [[ ! $i == "."  ]] && cd ..
   done
   IFS=$SAVEIFS
