@@ -49,3 +49,36 @@ function git_up_all()
   done
   IFS=$SAVEIFS
 }
+
+function svn()
+{
+
+  echo $*
+  
+  SVN=""
+  [[ -x /usr/bin/svn ]] && SVN=/usr/bin/svn
+  [[ -x /usr/local/bin/svn ]] && SVN=/usr/local/bin/svn
+  [[ -x /opt/bin/svn ]] && SVN=/opt/bin/svn
+
+  [[ x$SVN == "x" ]] && echo "- error. no svn found. exit" && return -1
+
+
+  cmd=`echo $0 $*  | sed -e 's/ /-/'`
+  # echo $cmd
+  # find the command
+
+  wrapper_cmd=`echo $cmd | awk '{ print $1 }'`
+  
+  which $wrapper_cmd >/dev/null
+  if [  $? = 0 ]
+  then
+    # echo $cmd"
+    shift
+    # echo $*
+     $wrapper_cmd $*
+  else
+     $SVN $*
+  fi
+}
+
+
