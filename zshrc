@@ -2,8 +2,10 @@
 
 
 source $HOME/Configfiles/zsh-configfiles/main.rc.zsh
-source $HOME/Configfiles/zsh-configfiles/python.rc.zsh
 source $HOME/Configfiles/zsh-configfiles/tools.rc.zsh
+
+source $HOME/Configfiles/zsh-configfiles/python.rc.zsh
+source $HOME/Configfiles/zsh-configfiles/latex.rc.zsh
 
 
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
