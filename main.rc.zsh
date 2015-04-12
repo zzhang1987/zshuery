@@ -226,20 +226,6 @@ up() {
     test $DIR != "/" && echo $DIR/$TARGET
 }
 
-tex_clean() {
-    for ext in "*bak" "*log" "*swp" "*~" "*bbl" "*blg" "*aux" "*dvi" \
-        "*synctex.gz" "*sav" "*fmt" "*out"
-    do
-        echo "moving:  "$ext" to ./temp"
-
-            [[ ! -d ./temp ]] && mkdir ./temp
-            for f in `find . -type f -name "$ext"`
-            do
-                mv -f "$f" ./temp
-            done
-    done
-}
-
 zz() {
     if [ -z $1 ]; then
             echo "you need to provide a file or dir to zip."
