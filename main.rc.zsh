@@ -288,6 +288,20 @@ embed_pdf_fonts() {
     pdffonts ieee_output_$yourfile
 }
 
+o(){
+if is_mac; then
+    
+     if [[ -z $1 ]]; then
+       open .
+     else
+       [[ -f "$1" ]] && open "$1" && return 0
+       [[ ! -f "$1" ]] && [[ -f "$1".pdf ]] && open "$1".pdf && return 0
+       [[ ! -f "$1" ]] && [[ -f "$1".ps ]] && open "$1".ps && return 0
+       [[ ! -f "$1" ]] && [[ -f "$1".tex ]] && open "$1".tex && return 0
+     fi
+fi
+}
+
 
 if is_mac; then
     cdf() { eval cd "`osascript -e 'tell app "Finder" to return the quoted form of the POSIX path of (target of window 1 as alias)' 2>/dev/null`" }
@@ -376,7 +390,7 @@ load_aliases() {
         alias ls='ls -G'
 
         alias d='cd ~/Desktop'
-        alias o='open'
+        # alias o='open'
                                            # OSX lock screen
         alias lockup='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
