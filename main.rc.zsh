@@ -407,7 +407,7 @@ load_aliases() {
     fi
 
     alias ..='cd ..'
-    alias mv='mv -iv'
+    alias mv='mv -i'
     alias cp='cp -iv'
     alias la='ls -lah'
     alias ll='ls -lFh'
