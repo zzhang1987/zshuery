@@ -17,11 +17,6 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 LP_MARK_GIT="❀"
 
 
-# prompts '%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}[$?]%{$reset_color%}' 
-
-
-
-
 
 zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
 
