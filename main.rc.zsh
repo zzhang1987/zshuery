@@ -142,6 +142,8 @@ virtualenv_info() {
     [ $VIRTUAL_ENV ] && echo ' ('`basename $VIRTUAL_ENV`')'
 }
 
+
+
 last_modified() {
     ls -t $* 2> /dev/null | head -n 1
 }

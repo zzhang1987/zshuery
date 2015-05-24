@@ -16,9 +16,9 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 [[ $- = *i* ]] && source $HOME/Configfiles/zsh-configfiles/liquidprompt/liquidprompt
 LP_MARK_GIT="❀"
 
-#
+
 # prompts '%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}[$?]%{$reset_color%}' 
-#
+
 
 
 
