@@ -33,12 +33,10 @@ if is_mac; then
     [[ -d ~/bin ]] && export PATH=~/bin:$PATH
     [[ -d /usr/local/cuda/bin ]] && export PATH=/usr/local/cuda/bin:$PATH
     [[ -d ~/opt ]] && export PATH=~/opt:$PATH
-    [[ -d ~/.nimble/bin ]]  && export PATH=~/.nimble/bin:$PATH
 
-
-    #[[ -d ~/anaconda/bin ]] && export PATH=~/anaconda/bin:$PATH
-
-    # [[ -d /usr/local/cuda/lib ]] && export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+    [[ -d ~/.local/bin ]] && export ~/.local/bin:$PATH
+    #[[ -d ~/anaconda/bin ]]      && export PATH=~/anaconda/bin:$PATH
+    #[[ -d /usr/local/cuda/lib ]] && export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 
 else
     export EDITOR='vim'
