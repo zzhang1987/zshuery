@@ -398,7 +398,7 @@ load_aliases() {
 
         # matlab
         export MATLAB_JAVA="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-        alias matlab='/Applications/MATLAB_R2014b.app/bin/matlab -desktop'
+        alias matlab='/Applications/MATLAB_R2015a.app/bin/matlab -desktop'
 
         alias sc='screencapture -iW ~/Desktop/screen.jpg'
         alias screen_capture='screencapture -iW ~/Desktop/screen.jpg'
