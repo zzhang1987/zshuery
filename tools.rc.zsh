@@ -11,8 +11,11 @@ function merge_pdf()
 
 function ip-addr() 
 {
-  wget -qO- http://ipecho.net/plain
-  echo
+  if [[ -x /usr/bin/pbcopy ]]; then 
+    wget -qO- http://ipecho.net/plain && echo | pbcopy
+  else
+    wget -qO- http://ipecho.net/plain && echo
+  fi
 }
 
 function copyfile() 
