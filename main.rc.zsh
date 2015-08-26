@@ -415,6 +415,8 @@ load_aliases() {
     alias ll='ls -lFh'
     alias l='ls -Fh'
 
+    alias a='atom'
+
     # grc overides for ls; Made possible through contributions from generous benefactors like
     # `brew install coreutils`
     if $(gls &>/dev/null); then
