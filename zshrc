@@ -42,6 +42,8 @@ else
     export EDITOR='vim'
 fi
 
+[[ -d $HOME/perl5/lib/perl5 ]] && export PERL5LIB=$HOME/perl5/lib/perl5
+
 
 virtual_envs=($HOME/python $HOME/Projects/python)
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_cache
