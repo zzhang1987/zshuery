@@ -26,6 +26,9 @@ load_completion  ~/Configfiles/zshuery/completion/src
 load_correction
 
 
+setopt extended_glob
+
+
 if is_mac; then
     export EDITOR='mvim'
 
