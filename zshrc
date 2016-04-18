@@ -22,7 +22,7 @@ zle_highlight=(region:standout special:standout suffix:bold isearch:underline)
 
 load_defaults
 load_aliases
-load_completion  ~/Configfiles/zshuery/completion/src
+load_completion  ~/.config/zshuery/completion/src
 load_correction
 
 
