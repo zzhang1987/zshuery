@@ -1,11 +1,11 @@
 
 
 
-source $HOME/Configfiles/zsh-configfiles/main.rc.zsh
-source $HOME/Configfiles/zsh-configfiles/tools.rc.zsh
+source $HOME/.config/zshuery/main.rc.zsh
+source $HOME/.config/zshuery/tools.rc.zsh
 
-source $HOME/Configfiles/zsh-configfiles/python.rc.zsh
-source $HOME/Configfiles/zsh-configfiles/latex.rc.zsh
+source $HOME/.config/zshuery/python.rc.zsh
+source $HOME/.config/zshuery/latex.rc.zsh
 
 
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
@@ -13,7 +13,7 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source $HOME/Configfiles/zsh-configfiles/liquidprompt/liquidprompt
+[[ $- = *i* ]] && source $HOME/.config/zshuery/liquidprompt/liquidprompt
 LP_MARK_GIT="❀"
 
 
