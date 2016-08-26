@@ -30,7 +30,7 @@ setopt extended_glob
 
 
 if is_mac; then
-    export EDITOR='mvim'
+    export EDITOR='mvim -f'
 
     [[ -d ~/Dropbox/bin ]] && export PATH=~/Dropbox/bin:$PATH
     [[ -d ~/bin ]] && export PATH=~/bin:$PATH
