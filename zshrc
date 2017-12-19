@@ -95,3 +95,7 @@ export XMODIFIERS=@im=fcitx
 if is_linux; then
    alias open="xdg-open"
 fi
+
+#window title
+
+precmd() { printf "\x1b]0;%s\x07" "${USER}@${HOST}:${PWD}" }
