@@ -84,4 +84,14 @@ bindkey "\eOF" end-of-line
 bindkey "\eOd" backward-word
 bindkey "\eOc" forward-word 
 
+# export PATH=/home/zzhang/miniconda3/bin:$PATH
+# unset MATLAB_JAVA
 
+# 中文输入法设置
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+if is_linux; then
+   alias open="xdg-open"
+fi

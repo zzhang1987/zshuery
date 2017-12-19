@@ -397,8 +397,8 @@ load_aliases() {
         alias lockup='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
         # matlab
-        export MATLAB_JAVA="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-        alias matlab='/Applications/MATLAB_R2015a.app/bin/matlab -desktop'
+        #export MATLAB_JAVA="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+        #alias matlab='/Applications/MATLAB_R2015a.app/bin/matlab -desktop'
 
         alias sc='screencapture -iW ~/Desktop/screen.jpg'
         alias screen_capture='screencapture -iW ~/Desktop/screen.jpg'
@@ -414,7 +414,7 @@ load_aliases() {
     alias la='ls -lah'
     alias ll='ls -lFh'
     alias l='ls -Fh'
-
+    alias ls='ls --color'
     alias a='atom'
 
     # grc overides for ls; Made possible through contributions from generous benefactors like
