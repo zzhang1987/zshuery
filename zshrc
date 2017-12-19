@@ -96,6 +96,5 @@ if is_linux; then
    alias open="xdg-open"
 fi
 
-#window title
-
+#URXVT 终端标题
 precmd() { printf "\x1b]0;%s\x07" "${USER}@${HOST}:${PWD}" }
